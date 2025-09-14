@@ -29,4 +29,14 @@ public class RestAPIEntryController {
     public RestAPIEntry getEntryById(@PathVariable Long myId){
         return restApiEntries.get(myId);
     }
+
+    @DeleteMapping("id/{myId}")
+    public RestAPIEntry deleteEntryById(@PathVariable Long myId){
+        return restApiEntries.remove(myId);
+    }
+
+    @PutMapping("id/{Id}")
+    public  RestAPIEntry updateEntryById(@PathVariable Long Id, @RequestBody RestAPIEntry myEntry){
+        return restApiEntries.put(Id, myEntry);
+    }
 }
